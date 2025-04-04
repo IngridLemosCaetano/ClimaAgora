@@ -56,3 +56,22 @@ function showInfo(json){
 function showAlert(msg) {
     document.querySelector('#alert').innerHTML = msg;
 }
+
+//----------- autocomplete Google -----------// 
+
+let autocomplete;
+function initAutocomplete() {
+    const input = document.getElementById("city_name");
+
+    autocomplete = new google.maps.places.Autocomplete(input, {
+        types: ['(cities)'],
+        componentRestrictions: { country: "br" }, // ou remova se quiser aceitar cidades de qualquer país
+    });
+
+    autocomplete.addListener('place_changed', () => {
+        const place = autocomplete.getPlace();
+        input.value = place.name;
+    });
+}
+
+//----------- FIM autocomplete Google -----------// 
