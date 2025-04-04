@@ -9,7 +9,7 @@ document.querySelector('#search').addEventListener('submit', async (event) => {
         return;
     }
 
-    const apiKey = '747f5791a0c224836fe6971ed33e32af'
+    const apiKey = '' /* inserir ApiKey */
     const apiUrl =  `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(cityName)}&appid=${apiKey}&units=metric&lang=pt_br`
 
     const results = await fetch(apiUrl);
@@ -30,7 +30,7 @@ document.querySelector('#search').addEventListener('submit', async (event) => {
     } else {
         document.querySelector("#weather").classList.remove('show');
         showAlert(`
-            Não foi possível localizar...
+            Não foi possível localizar, por favor tente novamente...
             
             <img src="./src/assets/images/404.svg"/>
         `)
